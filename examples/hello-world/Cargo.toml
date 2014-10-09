@@ -6,4 +6,4 @@ authors = [ "Tim Perry <pimterry@gmail.com>" ]
 
 [[bin]]
 
-name = "hello_world"
+name = "main"
