@@ -1,0 +1,18 @@
+Language intro - Mozilla, Servo, some history around C
+Basic syntax, some examples in comparison to Java
+Crates etc
+
+Low-level intro
+GC model
+Heap/stack beneath
+
+Why it's useful - walk through standard C bugs:
+- Null pointers
+- Reading uninitialized memory
+- Immutability generally?
+- Dangling pointers
+- Use after free https://news.ycombinator.com/item?id=7052913
+- Double free
+
+When you might want to use it
+Where Rust is now, the current plans
