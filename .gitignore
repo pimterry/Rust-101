@@ -1,5 +1,8 @@
 *.sw*
 target/
+dist/
+bower_components/
+node_modules/
 .idea
 *.iml
 *.exe
