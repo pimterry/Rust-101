@@ -1,4 +1,4 @@
 fn main() {
-  let x: &int = null;
+  let x: &int = 0;
   println!("{}", x);
 }
