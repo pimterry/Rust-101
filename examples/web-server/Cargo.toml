@@ -1,0 +1,10 @@
+[package]
+name = "web-server"
+version = "0.0.1"
+authors = ["pimterry <pimterry@gmail.com>"]
+
+[dependencies.nickel]
+git = "https://github.com/nickel-org/nickel.rs.git"
+
+[dependencies.rustache]
+git = "https://github.com/rustache/rustache"

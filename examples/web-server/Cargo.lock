@@ -1,0 +1,81 @@
+[root]
+name = "web-server"
+version = "0.0.1"
+dependencies = [
+ "nickel 0.1.0 (git+https://github.com/nickel-org/nickel.rs.git#c1bb3e17306c8d499c9657020254b4ae9abe7f0a)",
+ "rustache 0.0.1 (git+https://github.com/rustache/rustache#46f3277300ceea00c25e34b0d34b478f1d6b5fb8)",
+]
+
+[[package]]
+name = "anymap"
+version = "0.9.0"
+source = "git+https://github.com/chris-morgan/anymap.git#512885e502985a30a5b64e881f6f3af5a901d301"
+
+[[package]]
+name = "encoding"
+version = "0.1.0"
+source = "git+https://github.com/lifthrasiir/rust-encoding#16aff34b35e68b0f3a23e4d9dcff4f23cea2a414"
+
+[[package]]
+name = "groupable"
+version = "0.1.0"
+source = "git+https://github.com/Ryman/groupable-rs#ae2a086edb0b10a7e5f143405d072871e75a118e"
+
+[[package]]
+name = "http"
+version = "0.1.0-pre"
+source = "git+https://github.com/chris-morgan/rust-http.git#7f41166f0fa376536830d314ac4070614fa9652e"
+dependencies = [
+ "openssl 0.0.0 (git+https://github.com/sfackler/rust-openssl.git#fa951b438418c90d68fdf687a4e636f0cade7fc0)",
+ "url 0.1.0 (git+https://github.com/servo/rust-url#55b18b796ef2cef5490069dd450c60c2cc2c0c1b)",
+]
+
+[[package]]
+name = "memstream"
+version = "0.0.1"
+source = "git+https://github.com/seanchen1991/rust-memstream.git#97da06df6180cc849c25f38cb1572e1ded5574c9"
+
+[[package]]
+name = "nickel"
+version = "0.1.0"
+source = "git+https://github.com/nickel-org/nickel.rs.git#c1bb3e17306c8d499c9657020254b4ae9abe7f0a"
+dependencies = [
+ "anymap 0.9.0 (git+https://github.com/chris-morgan/anymap.git#512885e502985a30a5b64e881f6f3af5a901d301)",
+ "groupable 0.1.0 (git+https://github.com/Ryman/groupable-rs#ae2a086edb0b10a7e5f143405d072871e75a118e)",
+ "http 0.1.0-pre (git+https://github.com/chris-morgan/rust-http.git#7f41166f0fa376536830d314ac4070614fa9652e)",
+ "nickel_macros 0.0.1 (git+https://github.com/nickel-org/nickel.rs.git#c1bb3e17306c8d499c9657020254b4ae9abe7f0a)",
+ "rust-mustache 0.3.0 (git+https://github.com/pythonesque/rust-mustache.git#af44dbee522ea1eec931fbc9946c7621b754c126)",
+ "url 0.1.0 (git+https://github.com/servo/rust-url#55b18b796ef2cef5490069dd450c60c2cc2c0c1b)",
+]
+
+[[package]]
+name = "nickel_macros"
+version = "0.0.1"
+source = "git+https://github.com/nickel-org/nickel.rs.git#c1bb3e17306c8d499c9657020254b4ae9abe7f0a"
+
+[[package]]
+name = "openssl"
+version = "0.0.0"
+source = "git+https://github.com/sfackler/rust-openssl.git#fa951b438418c90d68fdf687a4e636f0cade7fc0"
+
+[[package]]
+name = "rust-mustache"
+version = "0.3.0"
+source = "git+https://github.com/pythonesque/rust-mustache.git#af44dbee522ea1eec931fbc9946c7621b754c126"
+
+[[package]]
+name = "rustache"
+version = "0.0.1"
+source = "git+https://github.com/rustache/rustache#46f3277300ceea00c25e34b0d34b478f1d6b5fb8"
+dependencies = [
+ "memstream 0.0.1 (git+https://github.com/seanchen1991/rust-memstream.git#97da06df6180cc849c25f38cb1572e1ded5574c9)",
+]
+
+[[package]]
+name = "url"
+version = "0.1.0"
+source = "git+https://github.com/servo/rust-url#55b18b796ef2cef5490069dd450c60c2cc2c0c1b"
+dependencies = [
+ "encoding 0.1.0 (git+https://github.com/lifthrasiir/rust-encoding#16aff34b35e68b0f3a23e4d9dcff4f23cea2a414)",
+]
+
