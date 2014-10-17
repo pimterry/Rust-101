@@ -169,6 +169,21 @@ html
             }
 
             impl Circle {
+                fn expand(&mut self) {
+                    self.radius = self.radius + 1;
+                }
+            }
+
+      section
+        pre
+          code.language-rust.
+            struct Circle {
+                x: int,
+                y: int,
+                radius: int
+            }
+
+            impl Circle {
                 fn new(x: int, y: int, radius: int) -> Circle {
                     return Circle { x: x, y: y, radius: radius };
                 }
