@@ -12,6 +12,417 @@ html
     article
 
       section
-        h1 Rust 101
+        h1.full-slide Rust 101
+        img(src='images/rust_logo.png').logo-big
+
+      section
+        h2 What?
+
+      section
+        h2 Low-level
+
+      section
+        h2 Safe
+
+      section
+        h2 Zero-cost abstractions
+
+      section
+        h2 Why?
+
+      section
+        img(src='images/twitter-in-servo.jpg').logo-big
+
+      section
+        pre
+          code.language-rust.
+            fn main() {
+                println!("hello world")
+            }
+
+      section
+        h2 Basic structures
+        pre
+          code.language-rust.
+            fn main() {
+                let my_name = "Tim";
+                println!("Hello {}", my_name);
+            }
+
+      section
+        pre
+          code.language-rust.
+            for index in range(0i, 10i) {
+                println!("index: {}", index);
+            }
+
+      section
+        pre
+          code.language-rust.
+              const RUN_TO: int = 100;
+              let mut n = 1;
+
+              while n <= RUN_TO {
+                  if n % 15 == 0 {
+                      println!("fizzbuzz");
+                  } else if n % 3 == 0 {
+                      println!("fizz");
+                  } else if n % 5 == 0 {
+                      println!("buzz");
+                  } else {
+                      println!("{}", n);
+                  }
+
+                  n += 1;
+              }
+
+      section
+        h2 More fun structures
+        pre
+          code.language-rust.          
+            loop {
+                println!("again, again!");
+            }
+      section
+        pre
+          code.language-rust.          
+            match x {
+                1 => println!("One!"),
+                2 => println!("Two!"),
+                3 => println!("Many!"),
+                4 => println!("Lots!"),
+                5 | 6 => println!("Er"),
+                7...10 => println!("Um"),
+                _ => println!("What?")
+            }
+
+      section
+        pre
+          code.language-rust.          
+            let pair = (123i, 456i);
+
+            match pair {
+                (456, _) => println!("1st part is 456"),
+                (_, 123) => println!("2nd part is 123"),
+                (a, b) if a > b => println!("A greater: {}", a),
+                (a, b) if b > a => println!("B greater: {}", b),
+                (_, _) => println!("Who knows")
+            }
+
+      section
+        h2 Functions
+        pre
+          code.language-rust.
+            fn add(x: int, y: int) -> int {
+                return x + y;
+            }
+
+      section
+        h2 Functions
+        pre
+          code.language-rust.
+            fn add(x: int, y: int) -> int {
+                x + y
+            }
+
+      section
+        pre
+          code.language-rust.
+            let add = |x: int, y: int| { x + y };
+
+      section
+        h2 Objects
+        pre
+          code.language-rust.
+            struct Point {
+                x: int,
+                y: int
+            }
+
+            fn main() {
+                let point = Point { x: 0, y: 0 };
+            }
+
+      section
+        pre
+          code.language-rust.
+            struct Circle {
+                x: int,
+                y: int,
+                radius: int
+            }
+
+            impl Circle {
+                fn max_x(&self) -> int {
+                    x + radius
+                }
+            }
+
+      section
+        pre
+          code.language-rust.
+            struct Circle {
+                x: int,
+                y: int,
+                radius: int
+            }
+
+            impl Circle {
+                fn new(x: int, y: int, radius: int) -> Circle {
+                    return Circle { x: x, y: y, radius: radius };
+                }
+            }
+
+            fn main() {
+                Circle::new(0, 0, 100);
+            }
+
+      section
+        h2 Enums
+        pre
+          code.language-rust.
+            enum Colour {
+                Red, Green, Blue
+            }
+
+            let x = Red;
+
+      section
+        pre
+          code.language-rust.
+            enum MaybeInt {
+                AnInt(int),
+                NoInt
+            }
+
+            let x: MaybeInt = AnInt(1);
+            let y: MaybeInt = NoInt;
+
+      section
+        pre
+          code.language-rust.
+            enum Option&lt;T&gt; {
+                Some(T),
+                None
+            }
+
+      section
+        pre
+          code.language-rust.
+            enum Result&lt;T, ErrorT&gt; {
+                Ok(T),
+                Err(ErrorT)
+            }
+
+      section
+        h2 Exceptions
+        pre
+          code.language-rust.
+            fn could_fail(x: int) -> Result&lt;int, String&gt; {
+                if x >= 0 {
+                    return Ok(x);
+                } else {
+                    return Err(format!("{} was less than 0", x));
+                }
+            }
+
+            fn main() {
+                let result = could_fail(-1);
+                match result {
+                    Ok(x) => println!("{} is ok!", x),
+                    Err(msg) => println!("Error! Message was: {}", msg)
+                }
+            }
+
+      section
+        h2 Concurrency
+        pre
+          code.language-rust.
+            spawn(proc() {
+                println!("Hi, from another thread!", x);          
+            });
+
+      section
+        h2 Concurrency
+        pre
+          code.language-rust.
+            fn main() {
+                let (tx, rx) = channel();
+
+                spawn(proc() {
+                    tx.send("Hi there!");
+                });
+
+                let response = rx.recv();
+                println!("Response: {}", response);
+            }
+
+      section
+        h2 Macros
+        pre
+          code.language-rust.
+            println!("x={}", 1, 2, 3);
+
+      section
+        h2 Macros
+        pre
+          code.language-rust.
+              let bad_query = sql!("SELECT * FORM users WHERE name = $1");
+
+      section
+        h2 Pointers
+        pre
+          code.language-clike.
+            int my_function() {
+                int x = 0;
+
+                int* x_address = &x;
+                *x_address = 5;
+
+                int y = *x_address;
+                return y;
+            }
+        aside
+          ul
+            li This is C
+            li X is a local variable, which means on the stack
+            li Which means gone after this function ends
+            li x is an int, but x_address is an int*; this means pointer to int
+            li &x gets the address of x
+            li *x_address gets the value at the end of x_address pointer
+            li y == x
+
+      section
+        h2 Rust Pointers
+        pre
+          code.language-rust.
+            fn my_function() -> int {
+                let mut x = 0;
+
+                let x_address = &mut x;
+                *x_address = 5;
+
+                let y = *x_address;
+                return y;
+            }
+
+      section
+        h2 Dangling pointers
+        pre
+          code.language-clike.
+            int my_function() {
+                int x = 5;
+                return &x;
+            }
+
+      section
+        h2 Lifetimes
+        pre
+          code.language-rust.
+            fn my_function() -> &int {
+                let x = 5;
+                return &x;
+            }
+
+            fn main() {
+                let y = my_function();
+            }
+
+      section
+        h2 Heap Pointers
+        pre
+          code.language-clike.
+            int main() {
+                int* heapVariable = malloc(sizeof(int));
+
+                ...
+
+                free(heapVariable);
+            }
+
+      section
+        h2 Heap Pointers in Rust
+        pre
+          code.language-rust.
+            fn main() {
+                let x = box 10i;
+                println!("X = {}", x);
+            }
+
+      section
+        pre
+          code.language-rust.
+            fn make_x() -> Box<int> {
+                let x = box 10i;
+                return x;
+            }
+
+            fn main() {
+                let x = make_x();
+                println!("X = {}", x);
+            }
+
+      section
+        pre
+          code.language-rust.
+            use std::rc::Rc;
+
+            fn main() {
+                let x = Rc::new(10i);
+                println!("X = {}", x);
+            }
+
+      section
+        h2 Real Code
+        pre
+          code.language-rust.
+            extern crate nickel;
+            extern crate rustache;
+
+            use std::io::net::ip::Ipv4Addr;
+            use nickel::{ Nickel, Request, Response, HttpRouter };
+            use rustache::{ HashBuilder, FileError };
+
+            fn main() {
+                let mut server = Nickel::new();
+                
+                // GET to /hello just returns "hello world"
+                fn hello_world_handler(_: &Request, response: &mut Response) { 
+                    response.send("hello world"); 
+                }
+
+                server.get("/hello", hello_world_handler);
+
+                // POST to /echo returns "You sent: [post body text]"
+                fn echo_handler(request: &Request, response: &mut Response) {
+                    let input = &request.origin.body;
+                    response.send(format!("You sent: {}\n", input));
+                }
+
+                server.post("/echo", echo_handler);
+
+                // GET to / renders an HTML templated page
+                fn render_home(_: &Request, response: &mut Response) {
+                    let view_model = HashBuilder::new()
+                                     .insert_string("title", "Rustacular")
+                                     .insert_string("content", "Content!");
+
+                    let render = rustache::render_file("index.html", view_model);
+
+                    response.send(match render {
+                        Ok(mut stream) => stream.read_to_string().unwrap(),
+                        Err(FileError(error)) => error,
+                        Err(_) => "Unknown error".to_string()
+                    });
+                }
+
+                server.get("/", render_home);
+
+                server.listen(Ipv4Addr(0, 0, 0, 0), 6767);
+            }
+
+      section
+        h1.full-slide Any questions?
+
 
     script(src='build/build.js')

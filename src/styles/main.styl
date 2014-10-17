@@ -106,9 +106,9 @@ address {
 }
 
 pre {
-  padding: 22px 16px !important;
   font-size: 14px;
-  min-width: 80%;
+  min-width: 60%;
+  max-height: 100%;
 }
 
 .sideBySide {
@@ -155,4 +155,13 @@ pre {
     opacity: 1;
     display: inherit;
   }
+}
+
+// Fix for an issue caused by recent changes in bespoke-theme-cube:
+.bespoke-theme-cube-slide-parent {
+  pointer-events: none;
+}
+
+.bespoke-slide {
+  pointer-events: auto;
 }
